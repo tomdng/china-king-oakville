@@ -1,15 +1,15 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled, { AnyStyledComponent } from 'styled-components';
 
 import Header from '../navbar';
-import './layout.css';
+import './normalize.css';
+
+// TODO: Figure out a really fast way to render fonts
+const StyledLayout: AnyStyledComponent = styled.div`
+  min-height: 100vh;
+  background: #fffff5;
+`;
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
   `);
 
   return (
-    <>
+    <StyledLayout>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -43,7 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
           Built with Gatsby
         </footer>
       </div>
-    </>
+    </StyledLayout>
   );
 };
 
