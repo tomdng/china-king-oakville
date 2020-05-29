@@ -1,37 +1,73 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { Link } from 'gatsby';
+import styled, { AnyStyledComponent } from 'styled-components';
+
+import { secondaryColor, accent, textPrimaryLight } from '../../settings';
+
+const StyledNavbar: AnyStyledComponent = styled.header`
+  height: 6rem;
+  background: ${secondaryColor};
+  font-family: 'Noto Serif';
+
+  h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: ${accent};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${accent};
+  }
+`;
+
+const StyledNavWrapper: AnyStyledComponent = styled.div`
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 auto;
+`;
+
+const StyledNavGroup: AnyStyledComponent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  p {
+    font-family: 'Mukta';
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 2rem;
+  }
+
+  a {
+    color: ${textPrimaryLight};
+  }
+`;
 
 interface HeaderProps {
   siteTitle: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }): JSX.Element => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+  <StyledNavbar>
+    <StyledNavWrapper>
+      <h1>
+        <Link to="/">{siteTitle}</Link>
       </h1>
-    </div>
-  </header>
+      <StyledNavGroup>
+        <p>
+          <Link to="/menu/">Menu</Link>
+        </p>
+        <p>
+          <Link to="/about/">About</Link>
+        </p>
+      </StyledNavGroup>
+    </StyledNavWrapper>
+  </StyledNavbar>
 );
 
 export default Header;

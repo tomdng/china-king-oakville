@@ -1,21 +1,51 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
+import Hero from '../components/hero';
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 
-const IndexPage = (): JSX.Element => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+type heroNode = {
+  frontmatter: {
+    heroImage: string;
+    heroImageAltText: string;
+  };
+};
+
+interface HomeQueryProps {
+  data: {
+    hero: {
+      nodes: heroNode[];
+    };
+  };
+}
+
+const IndexPage: React.FC<HomeQueryProps> = ({ data }): JSX.Element => {
+  const { heroImage, heroImageAltText } = data.hero.nodes[0].frontmatter;
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Hero heroImageFile={heroImage} altText={heroImageAltText} />
+      <h1>More text</h1>
+      <h1>
+        <Link to="/menu/">Link to menu</Link>
+      </h1>
+    </Layout>
+  );
+};
+
+export const pageQuery = graphql`
+  query {
+    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/home/" } }) {
+      nodes {
+        frontmatter {
+          heroImage
+          heroImageAltText
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
