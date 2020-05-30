@@ -6,7 +6,7 @@ import { secondaryColor } from '../../settings';
 
 const StyledHero: AnyStyledComponent = styled.div`
   height: calc(100vh - 6rem);
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,6 +19,7 @@ const StyledImageWrapper: AnyStyledComponent = styled.figure`
   margin: 1rem;
 `;
 
+// TODO: Reduce font size when height is less than 950px height
 const StyledTextGroup: AnyStyledComponent = styled.div`
   height: 60%;
   width: 30%;
@@ -30,6 +31,14 @@ const StyledTextGroup: AnyStyledComponent = styled.div`
 
   h2 {
     font-weight: 300;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  h2:last-child {
+    margin-bottom: 0;
   }
 `;
 

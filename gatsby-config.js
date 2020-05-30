@@ -36,5 +36,6 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
+    `gatsby-plugin-catch-links`,
   ],
 };

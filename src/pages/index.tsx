@@ -3,18 +3,41 @@ import { graphql } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
 
 import Hero from '../components/hero';
+import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { secondaryColor } from '../settings';
 
+// FIXME: Better way besides using negative margins?
 const StyledHomeContent: AnyStyledComponent = styled.section`
-  border: solid blue;
-  width: 500px;
+  display: flex;
+  width: 60%;
+  max-width: 800px;
+  padding: 1rem 0 0 0;
+  margin-bottom: -3rem;
+  flex-direction: column;
+  font-size: 36px;
+
+  a {
+    color: ${secondaryColor};
+  }
+`;
+
+const StyledHomeImages: AnyStyledComponent = styled.div`
+  width: 60%;
+  max-width: 800px;
+  margin-bottom: 7rem;
+
+  img {
+    margin: 7rem 0 0 0;
+  }
 `;
 
 type heroNode = {
   frontmatter: {
     heroImage: string;
     heroImageAltText: string;
+    imageList: string[];
   };
   html: string;
 };
@@ -39,9 +62,17 @@ interface HomeQueryProps {
 }
 
 const IndexPage: React.FC<HomeQueryProps> = ({ data }): JSX.Element => {
-  const { heroImage, heroImageAltText } = data.hero.nodes[0].frontmatter;
+  const {
+    heroImage,
+    heroImageAltText,
+    imageList,
+  } = data.hero.nodes[0].frontmatter;
   const homeContent = data.hero.nodes[0].html;
   const { address, hours, phone } = data.restaurantInfo.nodes[0].frontmatter;
+
+  const images = imageList.map(element => {
+    return <Image imageName={element} altText="Text" key={element} />;
+  });
 
   return (
     <Layout>
@@ -54,10 +85,7 @@ const IndexPage: React.FC<HomeQueryProps> = ({ data }): JSX.Element => {
         phone={phone}
       />
       <StyledHomeContent dangerouslySetInnerHTML={{ __html: homeContent }} />
-      <StyledHomeContent>
-        <h1>Hi bois</h1>
-      </StyledHomeContent>
-      <h3>What boi</h3>
+      <StyledHomeImages>{images}</StyledHomeImages>
     </Layout>
   );
 };
@@ -69,6 +97,7 @@ export const pageQuery = graphql`
         frontmatter {
           heroImage
           heroImageAltText
+          imageList
         }
         html
       }

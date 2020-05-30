@@ -8,13 +8,18 @@ import './normalize.css';
 
 const StyledLayout: AnyStyledComponent = styled.div`
   min-height: 100vh;
-  max-width: 100vw;
+  width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
   background: #fffff5;
   font-family: 'Mukta'; /* Default font */
+`;
+
+const StyledChildren: AnyStyledComponent = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -36,7 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
   return (
     <StyledLayout>
       <Navbar siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
+      <StyledChildren>{children}</StyledChildren>
       <Footer />
     </StyledLayout>
   );
