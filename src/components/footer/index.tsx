@@ -9,6 +9,7 @@ import {
 } from '../../settings';
 
 const StyledFooter: AnyStyledComponent = styled.footer`
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: ${secondaryColor};

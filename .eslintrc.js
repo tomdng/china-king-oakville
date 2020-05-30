@@ -43,6 +43,7 @@ module.exports = {
     ],
     'react/prop-types': 0,
     'import/prefer-default-export': 0,
+    'react/no-danger': 0,
   },
   settings: {
     'import/resolver': {

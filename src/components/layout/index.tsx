@@ -6,11 +6,16 @@ import Footer from '../footer';
 import Navbar from '../navbar';
 import './normalize.css';
 
-// TODO: Figure out a really fast way to render fonts
 const StyledLayout: AnyStyledComponent = styled.div`
   min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
   background: #fffff5;
   font-family: 'Mukta'; /* Default font */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 interface LayoutProps {

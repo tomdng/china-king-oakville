@@ -6,6 +6,7 @@ import { secondaryColor, accent, textPrimaryLight } from '../../settings';
 
 const StyledNavbar: AnyStyledComponent = styled.header`
   height: 6rem;
+  width: 100%;
   background: ${secondaryColor};
   font-family: 'Noto Serif';
 
