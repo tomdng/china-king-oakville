@@ -5,22 +5,59 @@ import styled, { AnyStyledComponent } from 'styled-components';
 import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { secondaryColor } from '../settings';
 
 const StyledQuickInfo: AnyStyledComponent = styled.section`
   width: 90%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+`;
+
+const StyledInfoBlockWrapper: AnyStyledComponent = styled.div`
+  margin-top: -2rem;
   display: flex;
   flex-direction: row;
-`;
+  justify-content: space-between;
 
-const StyledInfoBlock: AnyStyledComponent = styled.div``;
+  h2 {
+    font-family: 'Noto Serif';
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+`;
 
 const StyledStoryWrapper: AnyStyledComponent = styled.section`
-  width: 50%;
+  width: 60%;
+  max-width: 800px;
 `;
 
-const StyledStoryText: AnyStyledComponent = styled.div``;
+const StyledStoryText: AnyStyledComponent = styled.div`
+  margin-top: -1.5rem;
 
-const StyledAboutImages: AnyStyledComponent = styled.div``;
+  p {
+    margin-bottom: 2.5rem;
+  }
+
+  a {
+    color: ${secondaryColor};
+  }
+`;
+
+const StyledAboutImages: AnyStyledComponent = styled.div`
+  width: 100%;
+  margin-top: -5rem;
+  margin-bottom: 7rem;
+
+  img {
+    margin: 7rem 0 0 0;
+  }
+`;
 
 type restaurantInfoNode = {
   frontmatter: {
@@ -81,18 +118,20 @@ const AboutPage: React.FC<AboutQueryProps> = ({ data }): JSX.Element => {
       <SEO title="About" />
       <StyledQuickInfo>
         <h1>Quick Info</h1>
-        <StyledInfoBlock>
-          <h2>Hours</h2>
-          {hoursText}
-        </StyledInfoBlock>
-        <StyledInfoBlock>
-          <h2>Address</h2>
-          {addressText}
-        </StyledInfoBlock>
-        <StyledInfoBlock>
-          <h2>Phone</h2>
-          {phoneText}
-        </StyledInfoBlock>
+        <StyledInfoBlockWrapper>
+          <div>
+            <h2>Hours</h2>
+            {hoursText}
+          </div>
+          <div>
+            <h2>Address</h2>
+            {addressText}
+          </div>
+          <div>
+            <h2>Phone</h2>
+            {phoneText}
+          </div>
+        </StyledInfoBlockWrapper>
       </StyledQuickInfo>
       <StyledStoryWrapper>
         <h1>About Us</h1>

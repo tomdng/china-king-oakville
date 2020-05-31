@@ -8,18 +8,22 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { secondaryColor } from '../settings';
 
-// FIXME: Better way besides using negative margins?
 const StyledHomeContent: AnyStyledComponent = styled.section`
   display: flex;
   width: 60%;
   max-width: 800px;
   padding: 1rem 0 0 0;
-  margin-bottom: -3rem;
+  margin: -2rem 0 -3rem 0;
   flex-direction: column;
   font-size: 36px;
 
+  p {
+    margin: 1rem 0;
+  }
+
   a {
     color: ${secondaryColor};
+    font-weight: 600;
   }
 `;
 
@@ -29,7 +33,7 @@ const StyledHomeImages: AnyStyledComponent = styled.div`
   margin-bottom: 7rem;
 
   img {
-    margin: 7rem 0 0 0;
+    margin: 5rem 0 0 0;
   }
 `;
 

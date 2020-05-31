@@ -32,6 +32,7 @@ const StyledTextGroup: AnyStyledComponent = styled.div`
 
   h2 {
     font-weight: 300;
+    font-size: 24px;
   }
 
   h2:first-child {

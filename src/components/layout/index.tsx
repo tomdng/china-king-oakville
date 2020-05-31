@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Footer from '../footer';
 import Navbar from '../navbar';
+import { secondaryColor } from '../../settings';
 import './normalize.css';
 
 const StyledLayout: AnyStyledComponent = styled.div`
@@ -21,6 +22,20 @@ const StyledChildren: AnyStyledComponent = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  /* TODO: Consider lowering the font size */
+  h1 {
+    color: ${secondaryColor};
+    font-family: 'Noto Serif';
+    font-size: 72px;
+    font-weight: 900;
+  }
+
+  p {
+    font-family: 'Mukta';
+    font-size: 30px;
+    font-weight: 300;
+  }
 `;
 
 interface LayoutProps {

@@ -24,6 +24,7 @@ const StyledNavbar: AnyStyledComponent = styled.header`
 
 const StyledNavWrapper: AnyStyledComponent = styled.div`
   width: 90vw;
+  max-width: 1500px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
