@@ -38,6 +38,7 @@ type heroNode = {
     heroImage: string;
     heroImageAltText: string;
     imageList: string[];
+    imageAltText: string[];
   };
   html: string;
 };
@@ -66,12 +67,19 @@ const IndexPage: React.FC<HomeQueryProps> = ({ data }): JSX.Element => {
     heroImage,
     heroImageAltText,
     imageList,
+    imageAltText,
   } = data.hero.nodes[0].frontmatter;
   const homeContent = data.hero.nodes[0].html;
   const { address, hours, phone } = data.restaurantInfo.nodes[0].frontmatter;
 
-  const images = imageList.map(element => {
-    return <Image imageName={element} altText="Text" key={element} />;
+  const images = imageList.map((imageName, index) => {
+    return (
+      <Image
+        imageName={imageName}
+        altText={imageAltText[index]}
+        key={imageName}
+      />
+    );
   });
 
   return (
@@ -98,6 +106,7 @@ export const pageQuery = graphql`
           heroImage
           heroImageAltText
           imageList
+          imageAltText
         }
         html
       }

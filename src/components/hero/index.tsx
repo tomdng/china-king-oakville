@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
 
 import Image from '../image';
@@ -39,6 +40,10 @@ const StyledTextGroup: AnyStyledComponent = styled.div`
 
   h2:last-child {
     margin-bottom: 0;
+  }
+
+  a {
+    color: ${secondaryColor};
   }
 `;
 
@@ -87,7 +92,13 @@ const Hero: React.FC<HeroProps> = ({
           <BoldText>{hours[2]}</BoldText>
           <br />
         </h2>
-        <h2>Click the link below for the menu.</h2>
+        <h2>
+          Click the link below for
+          <br />
+          <BoldText>
+            <Link to="/menu/">the menu.</Link>
+          </BoldText>
+        </h2>
         <h2>
           And to order, call us at
           <br />
