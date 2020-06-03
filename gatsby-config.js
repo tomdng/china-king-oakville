@@ -28,7 +28,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,6 +35,8 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-excel`,
     `gatsby-plugin-catch-links`,
   ],
 };

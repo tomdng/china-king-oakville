@@ -11,7 +11,7 @@ const StyledLayout: AnyStyledComponent = styled.div`
   min-height: 100vh;
   width: 100vw;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background: #fffff5;
   font-family: 'Mukta'; /* Default font */
 `;
