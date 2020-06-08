@@ -1,7 +1,7 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { AnyStyledComponent } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledImage: AnyStyledComponent = styled(Img)`
   height: 100%;
