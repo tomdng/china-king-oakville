@@ -7,10 +7,10 @@ import MenuSection from './menuSection';
 const StyledMenu: AnyStyledComponent = styled.section`
   width: 90vw;
   max-width: 1500px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-auto-flow: row dense;
+  gap: 2rem 4rem;
 `;
 
 type MenuSection = {

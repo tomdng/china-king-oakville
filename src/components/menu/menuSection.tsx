@@ -5,7 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { textSecondaryDark } from '../../settings';
 
 const StyledMenuSection: AnyStyledComponent = styled.section`
-  max-width: 700px;
+  border: solid blue;
+  align-self: start;
   display: flex;
   flex-direction: column;
 `;
