@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { textSecondaryDark } from '../../settings';
+import { IconContext } from 'react-icons';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
+
+import {
+  secondaryColor,
+  textPrimaryDark,
+  textSecondaryDark,
+} from '../../settings';
 
 const StyledMenuSection: AnyStyledComponent = styled.section`
-  border: solid blue;
+  width: 40rem;
   align-self: start;
   display: flex;
   flex-direction: column;
 `;
 
 const StyledSectionHeader: AnyStyledComponent = styled.div`
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 
-  h1 {
+  h2 {
+    color: ${secondaryColor};
+    font-family: 'Noto Serif';
     font-size: 48px;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 30rem;
   }
 `;
 
@@ -32,25 +46,37 @@ const StyledDishGroup: AnyStyledComponent = styled.div`
   flex-direction: column;
 `;
 
+interface DishStyleProps {
+  spicy: boolean;
+}
+
 const StyledDish: AnyStyledComponent = styled.article`
+  color: ${(props: DishStyleProps) =>
+    props.spicy ? secondaryColor : textPrimaryDark};
   margin: 0;
   padding: -2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0.5rem 0;
+  }
 
   p {
-    margin: 0.75rem 0;
+    margin: -0.25rem 0 1rem 0;
+    font-size: 20px;
+    color: ${(props: DishStyleProps) =>
+      props.spicy ? secondaryColor : textSecondaryDark};
   }
 `;
 
 const StyledMainDishInfo: AnyStyledComponent = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const StyledDishName: AnyStyledComponent = styled.p`
-  font-size: 30px;
 `;
 
 const StyledDishPrice: AnyStyledComponent = styled.div`
@@ -101,14 +127,10 @@ const MenuSection: React.FC<MenuSectionProps> = ({
     .filter((element: MenuDish) => element.category === name)
     .map((element: MenuDish) => {
       return (
-        <StyledDish>
+        <StyledDish spicy={element.spicy}>
           <StyledMainDishInfo>
-            <StyledDishName>{element.name}</StyledDishName>
-            {element.description ? (
-              <StyledDescriptionText>
-                {element.description}
-              </StyledDescriptionText>
-            ) : null}
+            <h2>{element.name}</h2>
+            {element.description ? <p>{element.description}</p> : null}
           </StyledMainDishInfo>
           <StyledDishPrice>
             <p>{element.smallPrice}</p>
@@ -118,13 +140,28 @@ const MenuSection: React.FC<MenuSectionProps> = ({
       );
     });
 
+  const [open, setOpen] = useState(true);
+
+  const toggleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <StyledMenuSection>
-      <StyledSectionHeader>
-        <h1>{name}</h1>
+      <StyledSectionHeader onClick={toggleOpen}>
+        <h2>{name}</h2>
+        <IconContext.Provider
+          value={{
+            color: secondaryColor,
+            size: '8rem',
+            style: { margin: '0 -2.5rem -1rem 0' },
+          }}
+        >
+          {open ? <MdArrowDropUp /> : <MdArrowDropDown />}
+        </IconContext.Provider>
       </StyledSectionHeader>
       {desc ? <StyledDescriptionText>{desc}</StyledDescriptionText> : null}
-      <StyledDishGroup>{menuDishes}</StyledDishGroup>
+      {open ? <StyledDishGroup>{menuDishes}</StyledDishGroup> : null}
     </StyledMenuSection>
   );
 };

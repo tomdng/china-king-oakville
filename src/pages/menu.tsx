@@ -9,7 +9,7 @@ import { textPrimaryDark } from '../settings';
 const StyledMenuHeader: AnyStyledComponent = styled.div`
   width: 90vw;
   max-width: 1500px;
-  margin: 2rem 0 1rem 0;
+  margin: 2rem 0 -2rem 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -25,6 +25,19 @@ const StyledMenuHeader: AnyStyledComponent = styled.div`
   }
 `;
 
+const StyledMenuSubtext: AnyStyledComponent = styled.ul`
+  width: 90vw;
+  max-width: 1500px;
+  margin: 0 0 1rem 0;
+
+  li {
+    font-family: Mukta;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0.5rem 0;
+  }
+`;
+
 // TODO: Add link for PDF version of menu
 const MenuPage: React.FC = (): JSX.Element => (
   <Layout>
@@ -37,6 +50,14 @@ const MenuPage: React.FC = (): JSX.Element => (
         </a>
       </p>
     </StyledMenuHeader>
+    <StyledMenuSubtext>
+      <li>
+        If there are multiple prices, then the item comes in both a large and
+        small size.
+      </li>
+      <li>Red items are spicy.</li>
+      <li>Lunch specials are only available before 3:00 pm.</li>
+    </StyledMenuSubtext>
     <Menu />
   </Layout>
 );

@@ -5,12 +5,16 @@ import { useStaticQuery, graphql } from 'gatsby';
 import MenuSection from './menuSection';
 
 const StyledMenu: AnyStyledComponent = styled.section`
-  width: 90vw;
+  width: calc(90vw + 4rem);
   max-width: 1500px;
+  margin-bottom: 7.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-  grid-auto-flow: row dense;
-  gap: 2rem 4rem;
+`;
+
+const StyledMenuColumn: AnyStyledComponent = styled.section`
+  display: flex;
+  flex-direction: column;
 `;
 
 type MenuSection = {
@@ -31,18 +35,42 @@ const Menu: React.FC = (): JSX.Element => {
     }
   `);
 
-  const menuSections = data.sections.nodes.map((element: MenuSection) => {
-    return (
-      <MenuSection
-        key={element.name}
-        name={element.name}
-        desc={element.description}
-      />
-    );
-  });
+  /* Cutoff represents the number of menu categories we want to have on
+     the left side versus the right side. Two flexbox columns seemed to work
+     better than CSS grid or CSS column properties.
+  */
+  const cutoff = 5;
+  const menuSectionLeft = data.sections.nodes
+    .slice(0, cutoff)
+    .map((element: MenuSection) => {
+      return (
+        <MenuSection
+          key={element.name}
+          name={element.name}
+          desc={element.description}
+        />
+      );
+    });
+
+  const menuSectionRight = data.sections.nodes
+    .slice(cutoff, data.sections.nodes.length)
+    .map((element: MenuSection) => {
+      return (
+        <MenuSection
+          key={element.name}
+          name={element.name}
+          desc={element.description}
+        />
+      );
+    });
 
   // Work on composition of menu sections
-  return <StyledMenu>{menuSections}</StyledMenu>;
+  return (
+    <StyledMenu>
+      <StyledMenuColumn>{menuSectionLeft}</StyledMenuColumn>
+      <StyledMenuColumn>{menuSectionRight}</StyledMenuColumn>
+    </StyledMenu>
+  );
 };
 
 export default Menu;
