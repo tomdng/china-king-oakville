@@ -12,8 +12,8 @@ import {
 } from '../../settings';
 
 const StyledMenuSection: AnyStyledComponent = styled.section`
-  width: 40rem;
-  align-self: start;
+  max-width: 36rem;
+  margin: 0 2rem;
   display: flex;
   flex-direction: column;
 `;

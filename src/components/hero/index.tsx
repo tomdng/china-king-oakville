@@ -6,8 +6,9 @@ import Image from '../image';
 import { secondaryColor } from '../../settings';
 
 const StyledHero: AnyStyledComponent = styled.div`
-  height: calc(100vh - 6rem);
+  min-height: calc(100vh - 8rem);
   width: 100%;
+  margin: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -17,10 +18,9 @@ const StyledHero: AnyStyledComponent = styled.div`
 const StyledImageWrapper: AnyStyledComponent = styled.figure`
   height: 60%;
   width: 40%;
-  margin: 1rem;
+  margin-right: 1rem;
 `;
 
-// TODO: Reduce font size when height is less than 950px height
 const StyledTextGroup: AnyStyledComponent = styled.div`
   height: 60%;
   width: 30%;

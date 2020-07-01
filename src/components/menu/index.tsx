@@ -8,8 +8,9 @@ const StyledMenu: AnyStyledComponent = styled.section`
   width: calc(90vw + 4rem);
   max-width: 1500px;
   margin-bottom: 7.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const StyledMenuColumn: AnyStyledComponent = styled.section`
