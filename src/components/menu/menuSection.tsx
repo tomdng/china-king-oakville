@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-
 import { IconContext } from 'react-icons';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 
@@ -9,6 +8,7 @@ import {
   secondaryColor,
   textPrimaryDark,
   textSecondaryDark,
+  tabletWidth,
 } from '../../settings';
 
 const StyledMenuSection: AnyStyledComponent = styled.section`
@@ -16,6 +16,10 @@ const StyledMenuSection: AnyStyledComponent = styled.section`
   margin: 0 2rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${tabletWidth}) {
+    max-width: 90%;
+  }
 `;
 
 const StyledSectionHeader: AnyStyledComponent = styled.div`
@@ -140,7 +144,10 @@ const MenuSection: React.FC<MenuSectionProps> = ({
       );
     });
 
-  const [open, setOpen] = useState(true);
+  // Tablet and smaller device widthes shouldn't have the entire
+  // menu categories expanded on load
+  const initialOpenState = window.innerWidth;
+  const [open, setOpen] = useState(initialOpenState > 1200);
 
   const toggleOpen = () => {
     setOpen(!open);

@@ -6,4 +6,6 @@ module.exports = {
   textPrimaryDark: '#171717',
   textSecondaryDark: '#3e3e3e',
   textSecondaryLight: '#dedede',
+  tabletWidth: '1200px',
+  maxWidth: '1500px',
 };

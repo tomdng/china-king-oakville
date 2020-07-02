@@ -3,14 +3,19 @@ import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import MenuSection from './menuSection';
+import { tabletWidth } from '../../settings';
 
 const StyledMenu: AnyStyledComponent = styled.section`
   width: calc(90vw + 4rem);
-  max-width: 1500px;
+  max-width: calc(1500px + 4rem);
   margin-bottom: 7.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: ${tabletWidth}) {
+    flex-direction: column;
+  }
 `;
 
 const StyledMenuColumn: AnyStyledComponent = styled.section`
