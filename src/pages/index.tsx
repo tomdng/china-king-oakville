@@ -25,6 +25,12 @@ const StyledHomeContent: AnyStyledComponent = styled.section`
     color: ${secondaryColor};
     font-weight: 600;
   }
+
+  @media (max-width: 1200px) {
+    width: 90%;
+    max-width: 90%;
+    padding: 0;
+  }
 `;
 
 const StyledHomeImages: AnyStyledComponent = styled.div`
@@ -34,6 +40,11 @@ const StyledHomeImages: AnyStyledComponent = styled.div`
 
   img {
     margin: 5rem 0 0 0;
+  }
+
+  @media (max-width: 1200px) {
+    width: 90%;
+    max-width: 90%;
   }
 `;
 

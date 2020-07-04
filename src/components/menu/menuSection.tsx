@@ -131,7 +131,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
     .filter((element: MenuDish) => element.category === name)
     .map((element: MenuDish) => {
       return (
-        <StyledDish spicy={element.spicy}>
+        <StyledDish spicy={element.spicy} key={element.name}>
           <StyledMainDishInfo>
             <h2>{element.name}</h2>
             {element.description ? <p>{element.description}</p> : null}

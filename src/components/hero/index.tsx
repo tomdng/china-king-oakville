@@ -3,22 +3,33 @@ import { Link } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
 
 import Image from '../image';
-import { secondaryColor } from '../../settings';
+import { secondaryColor, tabletWidth, mobileWidth } from '../../settings';
 
 const StyledHero: AnyStyledComponent = styled.div`
   min-height: calc(100vh - 8rem);
   width: 100%;
-  margin: 2rem;
+  margin: 2rem 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${tabletWidth}) {
+    min-height: auto;
+    flex-direction: column;
+    margin: 4rem 0;
+  }
 `;
 
 const StyledImageWrapper: AnyStyledComponent = styled.figure`
   height: 60%;
   width: 40%;
   margin-right: 1rem;
+
+  @media (max-width: ${tabletWidth}) {
+    width: 90%;
+    margin: 0 0 4rem 0;
+  }
 `;
 
 const StyledTextGroup: AnyStyledComponent = styled.div`
@@ -46,6 +57,29 @@ const StyledTextGroup: AnyStyledComponent = styled.div`
   a {
     color: ${secondaryColor};
   }
+
+  @media (max-width: ${tabletWidth}) {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      max-width: calc(75vw / 4);
+    }
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    flex-direction: column;
+
+    h2 {
+      max-width: 90%;
+      margin: 2rem 0;
+    }
+  }
 `;
 
 const BoldText: AnyStyledComponent = styled.span`
@@ -53,6 +87,10 @@ const BoldText: AnyStyledComponent = styled.span`
   font-family: 'Noto Serif';
   font-size: 36px;
   font-weight: 900;
+
+  @media (max-width: ${tabletWidth}) {
+    font-size: 24px;
+  }
 `;
 
 interface HeroProps {
