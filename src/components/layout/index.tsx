@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Footer from '../footer';
 import Navbar from '../navbar';
-import { secondaryColor, tabletWidth } from '../../settings';
+import { secondaryColor, tabletWidth, mobileWidth } from '../../settings';
 import './normalize.css';
 
 const StyledLayout: AnyStyledComponent = styled.div`
@@ -39,6 +39,16 @@ const StyledChildren: AnyStyledComponent = styled.div`
   @media (max-width: ${tabletWidth}) {
     h1 {
       font-size: 48px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    h1 {
+      font-size: 36px;
     }
 
     p {

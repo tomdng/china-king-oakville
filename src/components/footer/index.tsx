@@ -8,6 +8,7 @@ import {
   textPrimaryLight,
   textSecondaryLight,
   tabletWidth,
+  mobileWidth,
 } from '../../settings';
 
 const StyledFooter: AnyStyledComponent = styled.footer`
@@ -25,6 +26,11 @@ const StyledBlockWrapper: AnyStyledComponent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 5rem 0;
+
+  @media (max-width: ${mobileWidth}) {
+    flex-direction: column;
+    margin: 3rem 0;
+  }
 `;
 
 const StyledBlock: AnyStyledComponent = styled.div`
@@ -67,6 +73,11 @@ const StyledBlock: AnyStyledComponent = styled.div`
     p {
       font-size: 20px;
     }
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    max-width: 90vw;
+    margin: 0.5rem 0;
   }
 `;
 

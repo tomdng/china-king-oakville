@@ -30,6 +30,10 @@ const StyledImageWrapper: AnyStyledComponent = styled.figure`
     width: 90%;
     margin: 0 0 4rem 0;
   }
+
+  @media (max-width: ${mobileWidth}) {
+    margin: 0 0 3rem 0;
+  }
 `;
 
 const StyledTextGroup: AnyStyledComponent = styled.div`
@@ -77,7 +81,7 @@ const StyledTextGroup: AnyStyledComponent = styled.div`
 
     h2 {
       max-width: 90%;
-      margin: 2rem 0;
+      margin: 1rem 0;
     }
   }
 `;

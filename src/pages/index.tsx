@@ -6,7 +6,7 @@ import Hero from '../components/hero';
 import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { secondaryColor } from '../settings';
+import { secondaryColor, tabletWidth, mobileWidth } from '../settings';
 
 const StyledHomeContent: AnyStyledComponent = styled.section`
   display: flex;
@@ -26,10 +26,20 @@ const StyledHomeContent: AnyStyledComponent = styled.section`
     font-weight: 600;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${tabletWidth}) {
     width: 90%;
     max-width: 90%;
     padding: 0;
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    p {
+      margin: 0.5rem 0;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -42,9 +52,17 @@ const StyledHomeImages: AnyStyledComponent = styled.div`
     margin: 5rem 0 0 0;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${tabletWidth}) {
     width: 90%;
     max-width: 90%;
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    margin: 2rem 0 3rem 0;
+
+    img {
+      margin: 3rem 0 0 0;
+    }
   }
 `;
 
