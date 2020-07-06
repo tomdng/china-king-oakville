@@ -7,6 +7,7 @@ import {
   secondaryColor,
   textPrimaryLight,
   textSecondaryLight,
+  tabletWidth,
 } from '../../settings';
 
 const StyledFooter: AnyStyledComponent = styled.footer`
@@ -53,6 +54,18 @@ const StyledBlock: AnyStyledComponent = styled.div`
     a {
       color: ${textPrimaryLight};
       text-decoration: none;
+    }
+  }
+
+  @media (max-width: ${tabletWidth}) {
+    max-width: calc(75vw / 4);
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 20px;
     }
   }
 `;

@@ -5,7 +5,7 @@ module.exports = {
   textPrimaryLight: '#f4f4f4',
   textPrimaryDark: '#171717',
   textSecondaryDark: '#3e3e3e',
-  textSecondaryLight: '#dedede',
+  textSecondaryLight: '#efefef',
   mobileWidth: '620px',
   tabletWidth: '1200px',
   maxWidth: '1500px',
