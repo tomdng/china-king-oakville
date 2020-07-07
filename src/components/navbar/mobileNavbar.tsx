@@ -1,14 +1,18 @@
 import React from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
+import { Menu /* , Close */ } from '@styled-icons/material';
 
-import { accent, secondaryColor, mobileWidth } from '../../settings';
+import {
+  accent,
+  secondaryColor,
+  textPrimaryLight,
+  mobileWidth,
+} from '../../settings';
 
 const StyledMobileNav: AnyStyledComponent = styled.nav`
   width: 100%;
   background: ${secondaryColor};
   font-family: 'Noto Serif';
-  display: flex;
-  flex-direction: row;
 
   h1 {
     font-size: 30px;
@@ -26,14 +30,30 @@ const StyledMobileNav: AnyStyledComponent = styled.nav`
   }
 `;
 
+const StyledMobileNavWrapper: AnyStyledComponent = styled.div`
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledMenuIcon: AnyStyledComponent = styled(Menu)`
+  width: 2.75rem;
+  color: ${textPrimaryLight};
+`;
+
 interface MobileNavProps {
   siteTitle: string;
 }
 
 const MobileNavbar: React.FC<MobileNavProps> = ({ siteTitle }) => (
   <StyledMobileNav>
-    <h1>{siteTitle}</h1>
-    <p>Hi</p>
+    <StyledMobileNavWrapper>
+      <h1>{siteTitle}</h1>
+      <StyledMenuIcon />
+    </StyledMobileNavWrapper>
   </StyledMobileNav>
 );
 
