@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { Menu /* , Close */ } from '@styled-icons/material';
 
@@ -44,17 +45,49 @@ const StyledMenuIcon: AnyStyledComponent = styled(Menu)`
   color: ${textPrimaryLight};
 `;
 
+const StyledNavOverlay: AnyStyledComponent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 1rem 0;
+
+  a {
+    width: 90%;
+    color: ${textPrimaryLight};
+    font-family: Mukta;
+    font-size: 24px;
+    margin: 1rem;
+    text-align: right;
+  }
+`;
+
 interface MobileNavProps {
   siteTitle: string;
 }
 
-const MobileNavbar: React.FC<MobileNavProps> = ({ siteTitle }) => (
-  <StyledMobileNav>
-    <StyledMobileNavWrapper>
-      <h1>{siteTitle}</h1>
-      <StyledMenuIcon />
-    </StyledMobileNavWrapper>
-  </StyledMobileNav>
-);
+const MobileNavbar: React.FC<MobileNavProps> = ({ siteTitle }) => {
+  const [overlay, setOverlay] = useState(false);
+
+  const toggleOverlay = () => {
+    setOverlay(!overlay);
+  };
+
+  return (
+    <StyledMobileNav>
+      <StyledMobileNavWrapper>
+        <h1>
+          <Link to="/">{siteTitle}</Link>
+        </h1>
+        <StyledMenuIcon onClick={toggleOverlay} />
+      </StyledMobileNavWrapper>
+      {overlay ? (
+        <StyledNavOverlay>
+          <Link to="/menu">Menu</Link>
+          <Link to="/about">About</Link>
+        </StyledNavOverlay>
+      ) : null}
+    </StyledMobileNav>
+  );
+};
 
 export default MobileNavbar;
