@@ -5,7 +5,7 @@ import styled, { AnyStyledComponent } from 'styled-components';
 import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { secondaryColor } from '../settings';
+import { secondaryColor, mobileWidth } from '../settings';
 
 const StyledQuickInfo: AnyStyledComponent = styled.section`
   width: 90%;
@@ -30,11 +30,19 @@ const StyledInfoBlockWrapper: AnyStyledComponent = styled.div`
   p {
     margin: 0.5rem 0;
   }
+
+  @media (max-width: ${mobileWidth}) {
+    flex-direction: column;
+  }
 `;
 
 const StyledStoryWrapper: AnyStyledComponent = styled.section`
   width: 60%;
   max-width: 800px;
+
+  @media (max-width: ${mobileWidth}) {
+    width: 90%;
+  }
 `;
 
 const StyledStoryText: AnyStyledComponent = styled.div`
@@ -47,6 +55,14 @@ const StyledStoryText: AnyStyledComponent = styled.div`
   a {
     color: ${secondaryColor};
   }
+
+  @media (max-width: ${mobileWidth}) {
+    margin-top: 0;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
 `;
 
 const StyledAboutImages: AnyStyledComponent = styled.div`
@@ -56,6 +72,13 @@ const StyledAboutImages: AnyStyledComponent = styled.div`
 
   img {
     margin: 7rem 0 0 0;
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    margin: 2rem 0 4rem 0;
+    img {
+      margin: 2rem 0;
+    }
   }
 `;
 

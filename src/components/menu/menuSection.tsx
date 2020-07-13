@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { IconContext } from 'react-icons';
+// TODO: Switch out with styled icons
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 
 import {
@@ -37,12 +38,22 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
     margin-bottom: 1.5rem;
     max-width: 30rem;
   }
+
+  @media (max-width: ${tabletWidth}) {
+    h2 {
+      font-size: 24px;
+    }
+  }
 `;
 
 const StyledDescriptionText: AnyStyledComponent = styled.p`
   font-size: 20px !important;
   color: ${textSecondaryDark};
   margin: -1rem 0 1rem 0;
+
+  @media (max-width: ${tabletWidth}) {
+    font-size: 16px !important;
+  }
 `;
 
 const StyledDishGroup: AnyStyledComponent = styled.div`
@@ -75,6 +86,16 @@ const StyledDish: AnyStyledComponent = styled.article`
     font-size: 20px;
     color: ${(props: DishStyleProps) =>
       props.spicy ? secondaryColor : textSecondaryDark};
+  }
+
+  @media (max-width: ${tabletWidth}) {
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 

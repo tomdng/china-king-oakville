@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
-import { Menu /* , Close */ } from '@styled-icons/material';
+import { Menu, Close } from '@styled-icons/material';
 
 import {
   accent,
@@ -45,6 +45,11 @@ const StyledMenuIcon: AnyStyledComponent = styled(Menu)`
   color: ${textPrimaryLight};
 `;
 
+const StyledCloseIcon: AnyStyledComponent = styled(Close)`
+  width: 2.75rem;
+  color: ${textPrimaryLight};
+`;
+
 const StyledNavOverlay: AnyStyledComponent = styled.div`
   display: flex;
   flex-direction: column;
@@ -78,7 +83,11 @@ const MobileNavbar: React.FC<MobileNavProps> = ({ siteTitle }) => {
         <h1>
           <Link to="/">{siteTitle}</Link>
         </h1>
-        <StyledMenuIcon onClick={toggleOverlay} />
+        {overlay ? (
+          <StyledCloseIcon onClick={toggleOverlay} />
+        ) : (
+          <StyledMenuIcon onClick={toggleOverlay} />
+        )}
       </StyledMobileNavWrapper>
       {overlay ? (
         <StyledNavOverlay>
