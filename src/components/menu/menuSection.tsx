@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import { IconContext } from 'react-icons';
-// TODO: Switch out with styled icons
-import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
+import { ArrowDropUp, ArrowDropDown } from '@styled-icons/material';
 
 import {
   secondaryColor,
   textPrimaryDark,
   textSecondaryDark,
   tabletWidth,
+  mobileWidth,
 } from '../../settings';
 
 const StyledMenuSection: AnyStyledComponent = styled.section`
@@ -28,7 +27,7 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 
   h2 {
     color: ${secondaryColor};
@@ -39,10 +38,21 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
     max-width: 30rem;
   }
 
-  @media (max-width: ${tabletWidth}) {
+  @media (max-width: ${mobileWidth}) {
     h2 {
       font-size: 24px;
+      max-width: 80%;
+      margin-bottom: 1rem;
     }
+  }
+`;
+
+const StyledIcon: AnyStyledComponent = styled.div`
+  width: 6rem;
+  color: ${secondaryColor};
+
+  @media (max-width: ${mobileWidth}) {
+    width: 4rem;
   }
 `;
 
@@ -51,7 +61,7 @@ const StyledDescriptionText: AnyStyledComponent = styled.p`
   color: ${textSecondaryDark};
   margin: -1rem 0 1rem 0;
 
-  @media (max-width: ${tabletWidth}) {
+  @media (max-width: ${mobileWidth}) {
     font-size: 16px !important;
   }
 `;
@@ -59,6 +69,10 @@ const StyledDescriptionText: AnyStyledComponent = styled.p`
 const StyledDishGroup: AnyStyledComponent = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${mobileWidth}) {
+    margin: -1rem 0 2rem 0;
+  }
 `;
 
 interface DishStyleProps {
@@ -91,6 +105,18 @@ const StyledDish: AnyStyledComponent = styled.article`
   @media (max-width: ${tabletWidth}) {
     h2 {
       font-size: 24px;
+      margin: 1rem 0 0.25rem 0;
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    h2 {
+      font-size: 20px;
     }
 
     p {
@@ -112,6 +138,12 @@ const StyledDishPrice: AnyStyledComponent = styled.div`
     font-weight: 900;
     margin-left: 1rem;
     font-size: 30px;
+  }
+
+  @media (max-width: ${mobileWidth}) {
+    p {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -178,17 +210,21 @@ const MenuSection: React.FC<MenuSectionProps> = ({
     <StyledMenuSection>
       <StyledSectionHeader onClick={toggleOpen}>
         <h2>{name}</h2>
-        <IconContext.Provider
-          value={{
-            color: secondaryColor,
-            size: '8rem',
-            style: { margin: '0 -2.5rem -1rem 0' },
-          }}
-        >
-          {open ? <MdArrowDropUp /> : <MdArrowDropDown />}
-        </IconContext.Provider>
+        {open ? (
+          <StyledIcon>
+            <ArrowDropUp />
+          </StyledIcon>
+        ) : (
+          <StyledIcon>
+            <ArrowDropDown />
+          </StyledIcon>
+        )}
       </StyledSectionHeader>
-      {desc ? <StyledDescriptionText>{desc}</StyledDescriptionText> : null}
+      {desc ? (
+        <StyledDescriptionText onClick={toggleOpen}>
+          {desc}
+        </StyledDescriptionText>
+      ) : null}
       {open ? <StyledDishGroup>{menuDishes}</StyledDishGroup> : null}
     </StyledMenuSection>
   );
