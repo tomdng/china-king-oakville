@@ -1,6 +1,20 @@
 ---
-imageList: ['home_1.jpg', 'home_2.jpg']
-imageAltText: ['Picture 1', 'Picture 2']
+imageList:
+  [
+    'storefront_1.jpg',
+    'storefront_3.jpg',
+    'dumplings.jpg',
+    'plaza_2.jpg',
+    'parking_lot.jpg',
+  ]
+imageAltText:
+  [
+    'Storefront of China King.',
+    'Closeup of China King storefront.',
+    'Dumplings',
+    'Neighboring stores of China King',
+    'Parking lot of Tori Pines Plaza',
+  ]
 ---
 
 We’re a small business open for <span style="color: #9a322d; font-weight: 600;">over 10 years</span> so you’ll always be familiar with our faces.

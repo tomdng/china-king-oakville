@@ -1,8 +1,8 @@
 ---
-heroImage: 'hero.jpg'
+heroImage: 'storefront_2.jpg'
 heroImageAltText: 'Photo of China King storefront.'
-imageList: ['home_1.jpg', 'home_2.jpg']
-imageAltText: ['Picture 1', 'Picture 2']
+imageList: ['dumplings.jpg', 'storefront_3.jpg']
+imageAltText: ['Dumplings.', 'Storefront of China King.']
 ---
 
 # Updates
