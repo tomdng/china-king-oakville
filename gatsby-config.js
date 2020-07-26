@@ -16,16 +16,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      // TODO: Swap out icon
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `china-king-oakville`,
         short_name: `china-king`,
         start_url: `/`,
-        background_color: `#9a322d`,
+        background_color: `#fffff5`,
         theme_color: `#9a322d`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/china_king_logo.png`, // This path is relative to the root of the site.
       },
     },
     {
