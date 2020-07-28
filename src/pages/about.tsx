@@ -67,11 +67,10 @@ const StyledStoryText: AnyStyledComponent = styled.div`
 
 const StyledAboutImages: AnyStyledComponent = styled.div`
   width: 100%;
-  margin-top: -5rem;
-  margin-bottom: 7rem;
+  margin: -2rem 0 7rem 0;
 
   img {
-    margin: 7rem 0 0 0;
+    margin: 3rem 0 0 0;
   }
 
   @media (max-width: ${mobileWidth}) {

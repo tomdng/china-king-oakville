@@ -13,7 +13,7 @@ const StyledHomeContent: AnyStyledComponent = styled.section`
   width: 60%;
   max-width: 800px;
   padding: 1rem 0 0 0;
-  margin: -2rem 0 -3rem 0;
+  margin: -2rem 0 0 0;
   flex-direction: column;
   font-size: 36px;
 
@@ -46,10 +46,10 @@ const StyledHomeContent: AnyStyledComponent = styled.section`
 const StyledHomeImages: AnyStyledComponent = styled.div`
   width: 60%;
   max-width: 800px;
-  margin-bottom: 7rem;
+  margin: 0 0 7rem 0;
 
   img {
-    margin: 5rem 0 0 0;
+    margin: 3rem 0 0 0;
   }
 
   @media (max-width: ${tabletWidth}) {
@@ -133,7 +133,9 @@ const IndexPage: React.FC<HomeQueryProps> = ({ data }): JSX.Element => {
 
 export const pageQuery = graphql`
   query {
-    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/home/" } }) {
+    hero: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/home.md/" } }
+    ) {
       nodes {
         frontmatter {
           heroImage

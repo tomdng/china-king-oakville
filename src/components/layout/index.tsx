@@ -41,6 +41,10 @@ const StyledChildren: AnyStyledComponent = styled.div`
     font-weight: 300;
   }
 
+  a {
+    font-weight: 600;
+  }
+
   a:hover {
     color: ${textPrimaryDark};
   }
