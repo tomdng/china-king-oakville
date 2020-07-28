@@ -26,6 +26,11 @@ const StyledMobileNav: AnyStyledComponent = styled.nav`
     color: ${accent};
   }
 
+  a:hover {
+    text-decoration: none;
+    color: ${textPrimaryLight};
+  }
+
   @media (min-width: ${mobileWidth}) {
     display: none;
   }

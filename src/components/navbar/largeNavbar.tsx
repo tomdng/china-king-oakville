@@ -26,6 +26,10 @@ const StyledNavbar: AnyStyledComponent = styled.header`
     color: ${accent};
   }
 
+  a:hover {
+    color: ${textPrimaryLight};
+  }
+
   @media (max-width: ${mobileWidth}) {
     display: none;
   }
@@ -56,6 +60,10 @@ const StyledNavGroup: AnyStyledComponent = styled.div`
 
   a {
     color: ${textPrimaryLight};
+  }
+
+  a:hover {
+    color: ${accent};
   }
 `;
 

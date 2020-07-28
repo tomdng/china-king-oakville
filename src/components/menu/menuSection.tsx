@@ -38,6 +38,12 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
     max-width: 30rem;
   }
 
+  &:hover {
+    h2 {
+      text-decoration: underline;
+    }
+  }
+
   @media (max-width: ${mobileWidth}) {
     h2 {
       font-size: 24px;
@@ -49,10 +55,12 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
 
 const StyledIcon: AnyStyledComponent = styled.div`
   width: 6rem;
+  margin-right: -1.25rem;
   color: ${secondaryColor};
 
   @media (max-width: ${mobileWidth}) {
     width: 4rem;
+    margin-right: -0.75rem;
   }
 `;
 
