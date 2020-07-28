@@ -4,7 +4,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Footer from '../footer';
 import Navbar from '../navbar';
-import { secondaryColor, tabletWidth, mobileWidth } from '../../settings';
+import {
+  secondaryColor,
+  textPrimaryDark,
+  tabletWidth,
+  mobileWidth,
+} from '../../settings';
 import './normalize.css';
 
 const StyledLayout: AnyStyledComponent = styled.div`
@@ -34,6 +39,10 @@ const StyledChildren: AnyStyledComponent = styled.div`
     font-family: 'Mukta';
     font-size: 30px;
     font-weight: 300;
+  }
+
+  a:hover {
+    color: ${textPrimaryDark};
   }
 
   @media (max-width: ${tabletWidth}) {

@@ -4,7 +4,7 @@ import styled, { AnyStyledComponent } from 'styled-components';
 import Layout from '../components/layout';
 import Menu from '../components/menu';
 import SEO from '../components/seo';
-import { textPrimaryDark, mobileWidth } from '../settings';
+import { secondaryColor, textPrimaryDark, mobileWidth } from '../settings';
 
 const StyledMenuHeader: AnyStyledComponent = styled.div`
   width: 90vw;
@@ -22,6 +22,10 @@ const StyledMenuHeader: AnyStyledComponent = styled.div`
 
   a {
     color: ${textPrimaryDark};
+  }
+
+  a:hover {
+    color: ${secondaryColor};
   }
 
   @media (max-width: ${mobileWidth}) {
