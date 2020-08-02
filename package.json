@@ -13,6 +13,7 @@
     "gatsby-plugin-offline": "^3.2.3",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sharp": "^2.6.4",
+    "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-typescript": "^2.4.3",
     "gatsby-source-filesystem": "^2.3.4",
     "gatsby-transformer-excel": "^2.4.3",
