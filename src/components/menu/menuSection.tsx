@@ -41,7 +41,12 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
   &:hover {
     cursor: pointer;
     h2 {
+      color: ${textPrimaryDark};
       text-decoration: underline;
+    }
+
+    svg {
+      color: ${textPrimaryDark};
     }
   }
 
