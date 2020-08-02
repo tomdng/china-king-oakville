@@ -37,5 +37,8 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-excel`,
     `gatsby-plugin-catch-links`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
   ],
 };
