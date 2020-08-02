@@ -36,6 +36,10 @@ const StyledInfoBlockWrapper: AnyStyledComponent = styled.div`
     text-decoration: none;
   }
 
+  a:hover {
+    color: ${secondaryColor};
+  }
+
   @media (max-width: ${mobileWidth}) {
     flex-direction: column;
   }
