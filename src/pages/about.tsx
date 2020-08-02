@@ -5,7 +5,7 @@ import styled, { AnyStyledComponent } from 'styled-components';
 import Image from '../components/image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { secondaryColor, mobileWidth } from '../settings';
+import { secondaryColor, textSecondaryDark, mobileWidth } from '../settings';
 
 const StyledQuickInfo: AnyStyledComponent = styled.section`
   width: 90%;
@@ -29,6 +29,11 @@ const StyledInfoBlockWrapper: AnyStyledComponent = styled.div`
 
   p {
     margin: 0.5rem 0;
+  }
+
+  a {
+    color: ${textSecondaryDark};
+    text-decoration: none;
   }
 
   @media (max-width: ${mobileWidth}) {
@@ -148,7 +153,7 @@ const AboutPage: React.FC<AboutQueryProps> = ({ data }): JSX.Element => {
           </div>
           <div>
             <h2>Address</h2>
-            {addressText}
+            <a href="https://goo.gl/maps/YUUoKsvJy6Co51qt7">{addressText}</a>
           </div>
           <div>
             <h2>Phone</h2>

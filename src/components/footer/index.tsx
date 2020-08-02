@@ -56,11 +56,11 @@ const StyledBlock: AnyStyledComponent = styled.div`
     font-size: 24px;
     font-weight: 700;
     margin: 0.25rem 0;
+  }
 
-    a {
-      color: ${textPrimaryLight};
-      text-decoration: none;
-    }
+  a {
+    color: ${textPrimaryLight};
+    text-decoration: none;
   }
 
   @media (max-width: ${tabletWidth}) {
@@ -133,15 +133,17 @@ const Footer: React.FC = (): JSX.Element => {
         </StyledBlock>
         <StyledBlock>
           <h1>Hours</h1>
-          {hoursText}
+          <div>{hoursText}</div>
         </StyledBlock>
         <StyledBlock>
           <h1>Address</h1>
-          {addressText}
+          <div>
+            <a href="https://goo.gl/maps/YUUoKsvJy6Co51qt7">{addressText}</a>
+          </div>
         </StyledBlock>
         <StyledBlock>
           <h1>Phone</h1>
-          {phoneText}
+          <div>{phoneText}</div>
         </StyledBlock>
       </StyledBlockWrapper>
       <StyledCopyright>

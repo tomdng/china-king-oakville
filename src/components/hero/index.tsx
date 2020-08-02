@@ -121,7 +121,9 @@ const Hero: React.FC<HeroProps> = ({
         <h2>
           Chinese food located at
           <br />
-          <BoldText>{address[0]}</BoldText>
+          <BoldText>
+            <a href="https://goo.gl/maps/YUUoKsvJy6Co51qt7">{address[0]}</a>
+          </BoldText>
           <br />
           in Tori Pines Plaza.
         </h2>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { AnyStyledComponent } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ArrowDropUp, ArrowDropDown } from '@styled-icons/material';
@@ -39,6 +39,7 @@ const StyledSectionHeader: AnyStyledComponent = styled.div`
   }
 
   &:hover {
+    cursor: pointer;
     h2 {
       text-decoration: underline;
     }
@@ -207,8 +208,13 @@ const MenuSection: React.FC<MenuSectionProps> = ({
 
   // Tablet and smaller device widthes shouldn't have the entire
   // menu categories expanded on load
-  const initialOpenState = window.innerWidth;
-  const [open, setOpen] = useState(initialOpenState > 1200);
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [open, setOpen] = useState(windowWidth > 1200);
+
+  useEffect(() => {
+    if (window) setWindowWidth(window.innerWidth);
+    if (windowWidth > 1200) setOpen(true);
+  }, [windowWidth]);
 
   const toggleOpen = () => {
     setOpen(!open);
