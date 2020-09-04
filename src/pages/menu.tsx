@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled, { AnyStyledComponent } from 'styled-components';
 
 import Layout from '../components/layout';
@@ -57,28 +58,41 @@ const StyledMenuSubtext: AnyStyledComponent = styled.ul`
   }
 `;
 
-// TODO: Add link for PDF version of menu
-const MenuPage: React.FC = (): JSX.Element => (
-  <Layout>
-    <SEO title="Menu" />
-    <StyledMenuHeader>
-      <h1>Menu</h1>
-      <p>
-        <a href="#" target="_blank">
-          Need a PDF version?
-        </a>
-      </p>
-    </StyledMenuHeader>
-    <StyledMenuSubtext>
-      <li>
-        If there are multiple prices, then the item comes in both a large and
-        small size.
-      </li>
-      <li>Red items are spicy.</li>
-      <li>Lunch specials are only available before 3:00 pm.</li>
-    </StyledMenuSubtext>
-    <Menu />
-  </Layout>
-);
+const MenuPage: React.FC = (): JSX.Element => {
+  const data = useStaticQuery(graphql`
+    {
+      allFile(filter: { extension: { eq: "pdf" } }) {
+        nodes {
+          publicURL
+        }
+      }
+    }
+  `);
+
+  const menuPDFURL = data.allFile.nodes[0].publicURL;
+
+  return (
+    <Layout>
+      <SEO title="Menu" />
+      <StyledMenuHeader>
+        <h1>Menu</h1>
+        <p>
+          <a href={menuPDFURL} target="blank">
+            Need a PDF version?
+          </a>
+        </p>
+      </StyledMenuHeader>
+      <StyledMenuSubtext>
+        <li>
+          If there are multiple prices, then the item comes in both a large and
+          small size.
+        </li>
+        <li>Red items are spicy.</li>
+        <li>Lunch specials are only available before 3:00 pm.</li>
+      </StyledMenuSubtext>
+      <Menu />
+    </Layout>
+  );
+};
 
 export default MenuPage;
