@@ -32,11 +32,12 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta = [], title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const defaultLang = lang || 'en';
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        defaultLang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
